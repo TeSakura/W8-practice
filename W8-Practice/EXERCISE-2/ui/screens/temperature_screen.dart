@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TemperatureScreen extends StatelessWidget {
-  TemperatureScreen({super.key});
+  final VoidCallback onBackPressed;
+
+  TemperatureScreen({super.key, required this.onBackPressed});
 
   final InputDecoration inputDecoration = InputDecoration(
     enabledBorder: OutlineInputBorder(
@@ -16,42 +18,47 @@ class TemperatureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(40.0),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Icon(
-              Icons.thermostat_outlined,
-              size: 120,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          IconButton(
+            alignment: Alignment.centerLeft,
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: onBackPressed,
+          ),
+          const Icon(Icons.thermostat_outlined, size: 120, color: Colors.white),
+          const Center(
+            child: Text(
+              "Converter",
+              style: TextStyle(color: Colors.white, fontSize: 45),
+            ),
+          ),
+          const SizedBox(height: 50),
+          const Text(
+            "Temperature in Degrees:",
+            style: TextStyle(color: Colors.white),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            decoration: inputDecoration,
+            style: const TextStyle(color: Colors.white),
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            "Temperature in Fahrenheit:",
+            style: TextStyle(color: Colors.white),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
               color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
             ),
-            const Center(
-              child: Text(
-                "Converter",
-                style: TextStyle(color: Colors.white, fontSize: 45),
-              ),
-            ),
-            const SizedBox(height: 50),
-            const Text("Temperature in Degrees:"),
-            const SizedBox(height: 10),
-            TextField(
-              decoration: inputDecoration,
-              style: const TextStyle(color: Colors.white),
-            ),
-            const SizedBox(height: 30),
-            const Text("Temperature in Fahrenheit:"),
-            const SizedBox(height: 10),
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Text('test'),
-            ),
-          ],
-        ),
+            child: const Text('test'),
+          ),
+        ],
       ),
     );
   }
