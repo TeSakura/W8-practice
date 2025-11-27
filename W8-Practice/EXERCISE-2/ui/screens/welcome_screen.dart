@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/W8-Practice/EXERCISE-2/ui/screens/temperature_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  final VoidCallback onStartPressed;
+
+  const WelcomeScreen({super.key, required this.onStartPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +25,7 @@ class WelcomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 15),
           OutlinedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (context) => TemperatureScreen(),
-                ),
-              );
-            },
+            onPressed: onStartPressed,
             style: OutlinedButton.styleFrom(
               side: const BorderSide(width: 1.0, color: Colors.white),
             ),
