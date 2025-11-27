@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-
 import '../model/profile_tile_model.dart';
 
-ProfileData ronanProfile = ProfileData(
-  name: "Ronan",
+ProfileData sakuraProfile = ProfileData(
+  name: "Te sakura",
   position: "Flutter Developer",
-  avatarUrl: 'assets/w5-s2/aang.png',
+  avatarUrl: 'assets/1.jpg',
   tiles: [
-    TileData(icon: Icons.phone, title: "Phone Number", value: "+123 456 7890"),
-    TileData(icon: Icons.location_on, title: "Address", value: "123 Cambodia"),
-    TileData(icon: Icons.email, title: "Mail", value: "ronan.ogogr@cadt.edu"),
+    TileData(icon: Icons.phone, title: "Phone Number", data: "+123 456 7890"),
+    TileData(icon: Icons.location_on, title: "Address", data: "Cambodia"),
+    TileData(icon: Icons.email, title: "Mail", data: "sakura.te@cadt.edu"),
+    TileData(icon: Icons.work, title: "Experience", data: "3 years"),
+    TileData(icon: Icons.school, title: "Education", data: "CADT University"),
+    TileData(icon: Icons.code, title: "Skills", data: "Flutter, Dart, UI/UX"),
   ],
 );
